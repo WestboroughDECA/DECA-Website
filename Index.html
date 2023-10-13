@@ -9,28 +9,65 @@
       font-family: Arial, Helvetica, sans-serif;
     }
     header {
-      background-color: blue;
+      background-color:navy;
       padding: 20px;
+      color:white;
     }
     section {
       background: white;
       color: black;
       padding: 20px;
+      display: flex;
+      flex-direction: row;
     }
     footer {
-      background-color: blue;
+      background-color:navy;
+      padding: 10px 20px;
+      color:white;
+    }
+    button {
+      background-color:aqua;
+      width: 100px;
+      height: 40px;
+      margin: auto;
+    }
+    div {
+      background-color: beige;
+      margin: auto;
+      width: 100px;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    li {
+      display: inline-block;
+      margin: 0 20px;
     }
   </style>
 </head>
 <body>
-  <header>Westborough DECA</header>
+  <header>
+    <nav>
+      <ul>
+        <li>Sponsorships</li>
+        <li>Hospitality</li>
+        <li>Fundraising</li>
+        <li>Community</li>
+        <li>Competition</li>
+        <li>SBE</li>
+    </ul>
+    <h1>Westborough DECA</h1>
+    </nav>
+  </header>
   <section>
-    <div>a</div>
-    <div>b</div>
-    <div>c</div>
-    <div>d</div>
-    <div>e</div>
-    <div>f</div>
+    <button>Sponsorships</button>
+    <button>Hospitality</button>
+    <button>Fundraising</button>
+    <button>Community</button>
+    <button>Competition</button>
+    <button>SBE</button>
   </section>
   <section>Lower Section</section>
   <footer>footer</footer>
