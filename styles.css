@@ -24,10 +24,9 @@ button {
   height: 40px;
   margin: auto;
 }
-div {
-  background-color: beige;
-  margin: auto;
-  width: 100px;
+button:hover {
+  background-color: blue;
+  color:white;
 }
 ul {
   margin: 0;
@@ -37,4 +36,8 @@ ul {
 li {
   display: inline-block;
   margin-right: 20px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
