@@ -2,9 +2,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 header {
-  background-color:navy;
+  background-image:url(images/heroImages/heroImage1.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
   padding: 20px;
-  color:white;
+  height: 400px;
+  text-align: center;
+  color: #0073C0;
 }
 section {
   background: white;
@@ -23,6 +27,7 @@ button {
   width: 100px;
   height: 40px;
   margin: auto;
+  border-radius: 100%;
 }
 button:hover {
   background-color: blue;
@@ -32,6 +37,8 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  font-size: 20px;
+  text-decoration: bold;
 }
 li {
   display: inline-block;
@@ -40,4 +47,59 @@ li {
 a {
   text-decoration: none;
   color: inherit;
+}
+button.sponsorship {
+  background-color:red;
+}
+button.sponsorship:hover {
+  background-color: blue;
+  color:white;
+}
+button.hospitality {
+  background-color:aquamarine;
+}
+button.hospitality:hover {
+  background-color: blue;
+  color:white;
+}
+button.fundraising {
+  background-color:bisque;
+}
+button.fundraising:hover {
+  background-color: blue;
+  color:white;
+}
+button.community {
+  background-color:coral;
+}
+button.community:hover {
+  background-color: blue;
+  color:white;
+}
+button.competition {
+  background-color:yellow;
+}
+button.competition:hover {
+  background-color: blue;
+  color:white;
+}
+button.sbe {
+  background-color:violet;
+}
+button.sbe:hover {
+  background-color: blue;
+  color:white;
+}
+ul.socialIcons {
+  display: inline-block;
+}
+li.logo {
+  background-image: url(images/logos/westboroughDecaLogo1.png);
+  background-size: 150px;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 150px;
+  height: 40px;
+  text-indent: -99999px;
+  display: inline-block;
 }
