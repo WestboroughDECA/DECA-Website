@@ -21,13 +21,14 @@ footer {
   background-color:navy;
   padding: 10px 20px;
   color:white;
+  text-align: center;
 }
 button {
   background-color:aqua;
   width: 100px;
   height: 40px;
   margin: auto;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 button:hover {
   background-color: blue;
@@ -38,15 +39,19 @@ ul {
   padding: 0;
   list-style-type: none;
   font-size: 20px;
-  text-decoration: bold;
+  justify-content: space-around;
 }
 li {
+  justify-content: space-around;
   display: inline-block;
-  margin-right: 20px;
 }
 a {
   text-decoration: none;
   color: inherit;
+}
+button {
+  box-shadow: gray 0 0 10px;
+  border: 1px solid white;
 }
 button.sponsorship {
   background-color:red;
@@ -102,4 +107,7 @@ li.logo {
   height: 40px;
   text-indent: -99999px;
   display: inline-block;
+}
+li.menu {
+  text-transform: uppercase;
 }
