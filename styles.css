@@ -2,7 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 header {
-  background-image:url(images/heroImages/heroImage1.png);
+  background-image: url(images/heroImages/heroImage1.png);
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 20px;
@@ -18,13 +18,13 @@ section {
   flex-direction: row;
 }
 footer {
-  background-color:navy;
+  background-color: navy;
   padding: 10px 20px;
-  color:white;
+  color: white;
   text-align: center;
 }
 button {
-  background-color:aqua;
+  background-color: aqua;
   width: 100px;
   height: 40px;
   margin: auto;
@@ -32,7 +32,7 @@ button {
 }
 button:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 ul {
   margin: 0;
@@ -40,12 +40,12 @@ ul {
   list-style-type: none;
   font-size: 20px;
   justify-content: space-between;
-  align-items:baseline;
+  align-items: baseline;
 }
 li {
   justify-content: space-between;
   display: inline-block;
-  align-items:baseline;
+  align-items: baseline;
 }
 a {
   text-decoration: none;
@@ -56,46 +56,46 @@ button {
   border: 1px solid white;
 }
 button.sponsorship {
-  background-color:red;
+  background-color: red;
 }
 button.sponsorship:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 button.hospitality {
-  background-color:aquamarine;
+  background-color: aquamarine;
 }
 button.hospitality:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 button.fundraising {
-  background-color:bisque;
+  background-color: bisque;
 }
 button.fundraising:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 button.community {
-  background-color:coral;
+  background-color: coral;
 }
 button.community:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 button.competition {
-  background-color:yellow;
+  background-color: yellow;
 }
 button.competition:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 button.sbe {
-  background-color:violet;
+  background-color: violet;
 }
 button.sbe:hover {
   background-color: blue;
-  color:white;
+  color: white;
 }
 ul.socialIcons {
   display: inline-block;
@@ -106,7 +106,42 @@ li.logo {
   width: 150px;
   height: 40px;
   display: inline-block;
+  justify-items: flex-start;
 }
 li.menu {
+  justify-content: flex-end;
+}
+th.menu {
+  justify-content: space-between;
+  display: inline-block;
+  align-items: baseline;
   text-transform: uppercase;
+  border-bottom: none;
+  border-top: none;
+  border-left: 1px solid black;
+  border-right: none;
+  border-color: #0073C0;
+}
+th.logo {
+  justify-content: space-between;
+  display: inline-block;
+  align-items: baseline;
+  text-transform: uppercase;
+  border-bottom: none;
+  border-top: none;
+  border-right: 1px solid black;
+  border-left:none;
+  border-color: #0073C0;
+}
+table.menu {
+  table-layout: fixed;
+  background-color: navy;
+  border-color: #0073C0;
+  border-spacing: 10px;
+  padding-right: 13%;
+  width: 100%;
+  height: 100%;
+}
+#th-left {
+  border-left: 0px;
 }
