@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-header {
+div.heroImage {
   background-image: url(images/heroImages/heroImage1.png);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -110,6 +110,11 @@ li.logo {
 }
 li.menu {
   justify-content: flex-end;
+  align-items: baseline;
+  text-transform: uppercase;
+}
+li.menu:hover {
+  text-decoration: underline;
 }
 th.menu {
   justify-content: space-between;
@@ -144,4 +149,16 @@ table.menu {
 }
 #th-left {
   border-left: 0px;
+}
+header {
+  background-color: navy;
+  padding: 20px;
+  text-align: center;
+  color: #0073C0;
+}
+#li-logo {
+  size: 150px;
+  width: 150px;
+  height: 40px;
+  justify-items: flex-start;
 }
