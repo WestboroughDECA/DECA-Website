@@ -43,9 +43,7 @@ ul {
   align-items: baseline;
 }
 li {
-  justify-content: space-between;
   display: inline-block;
-  align-items: baseline;
 }
 a {
   text-decoration: none;
@@ -102,10 +100,8 @@ ul.socialIcons {
 }
 li.logo {
   size: 150px;
-  position: relative;
   width: 150px;
   height: 40px;
-  display: inline-block;
   justify-items: flex-start;
 }
 li.menu {
@@ -146,6 +142,7 @@ table.menu {
   padding-right: 13%;
   width: 100%;
   height: 100%;
+  float: right;
 }
 #th-left {
   border-left: 0px;
@@ -161,4 +158,5 @@ header {
   width: 150px;
   height: 40px;
   justify-items: flex-start;
+  float: left;
 }
