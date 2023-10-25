@@ -18,7 +18,7 @@ section {
   flex-direction: row;
 }
 footer {
-  background-color: navy;
+  background-color: #0072ce;
   padding: 10px 20px;
   color: white;
   text-align: center;
@@ -108,19 +108,21 @@ li.menu {
   justify-content: flex-end;
   align-items: baseline;
   text-transform: uppercase;
+  vertical-align: middle;
+  right: 0;
+  position: relative;
+  float: right;
+
 }
 li.menu:hover {
   text-decoration: underline;
 }
 th.menu {
+  padding-top: 35px;
   justify-content: space-between;
   display: inline-block;
   align-items: baseline;
   text-transform: uppercase;
-  border-bottom: none;
-  border-top: none;
-  border-left: 1px solid black;
-  border-right: none;
   border-color: #0073C0;
 }
 th.logo {
@@ -134,12 +136,10 @@ th.logo {
   border-left:none;
   border-color: #0073C0;
 }
+th.menu:hover {
+  background-color:blue;
+}
 table.menu {
-  table-layout: fixed;
-  background-color: navy;
-  border-color: #0073C0;
-  border-spacing: 10px;
-  padding-right: 13%;
   width: 100%;
   height: 100%;
   float: right;
@@ -148,10 +148,11 @@ table.menu {
   border-left: 0px;
 }
 header {
-  background-color: navy;
+  background-color:#0072ce;
   padding: 20px;
   text-align: center;
-  color: #0073C0;
+  color:white;
+  height: 85px;
 }
 #li-logo {
   size: 150px;
@@ -159,4 +160,8 @@ header {
   height: 40px;
   justify-items: flex-start;
   float: left;
+}
+div.lol {
+  text-align: center;
+  color: #0073C0;
 }
