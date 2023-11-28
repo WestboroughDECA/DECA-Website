@@ -1,6 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 div.heroImage {
   background-image: url(images/heroImages/heroImage1.png);
   background-repeat: no-repeat;
@@ -10,6 +11,7 @@ div.heroImage {
   text-align: center;
   color: #0073C0;
 }
+
 section {
   background: white;
   color: black;
@@ -17,12 +19,14 @@ section {
   display: flex;
   flex-direction: row;
 }
+
 footer {
   background-color: #0072ce;
   padding: 10px 20px;
   color: white;
   text-align: center;
 }
+
 button {
   background-color: aqua;
   width: 100px;
@@ -30,10 +34,12 @@ button {
   margin: auto;
   border-radius: 50%;
 }
+
 button:hover {
   background-color: blue;
   color: white;
 }
+
 ul {
   margin: 0;
   padding: 0;
@@ -42,89 +48,114 @@ ul {
   justify-content: space-between;
   align-items: baseline;
 }
+
 li {
   display: inline-block;
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 button {
   box-shadow: gray 0 0 10px;
   border: 1px solid white;
 }
+
 button.sponsorship {
   background-color: red;
 }
+
 button.sponsorship:hover {
   background-color: blue;
   color: white;
 }
+
 button.hospitality {
   background-color: aquamarine;
 }
+
 button.hospitality:hover {
   background-color: blue;
   color: white;
 }
+
 button.fundraising {
   background-color: bisque;
 }
+
 button.fundraising:hover {
   background-color: blue;
   color: white;
 }
+
 button.community {
   background-color: coral;
 }
+
 button.community:hover {
   background-color: blue;
   color: white;
 }
+
 button.competition {
   background-color: yellow;
 }
+
 button.competition:hover {
   background-color: blue;
   color: white;
 }
+
 button.sbe {
   background-color: violet;
 }
+
 button.sbe:hover {
   background-color: blue;
   color: white;
 }
+
 ul.socialIcons {
   display: inline-block;
+  margin: 2%;
+  margin-bottom: 1%;
+  margin-top: 2%;
+  float: right;
 }
+
 li.logo {
   size: 150px;
   width: 150px;
   height: 40px;
   justify-items: flex-start;
 }
+
 li.menu {
   justify-content: flex-end;
   align-items: baseline;
   text-transform: uppercase;
   vertical-align: middle;
-  right: 0;
   position: relative;
-  float: right;
+  margin: 40px;
 
 }
+
 li.menu:hover {
   text-decoration: underline;
 }
+
 th.menu {
-  padding-top: 35px;
+  padding-top: 30px;
+  height: max-content;
   justify-content: space-between;
   display: inline-block;
   align-items: baseline;
   text-transform: uppercase;
   border-color: #0073C0;
 }
+
 th.logo {
   justify-content: space-between;
   display: inline-block;
@@ -133,27 +164,32 @@ th.logo {
   border-bottom: none;
   border-top: none;
   border-right: 1px solid black;
-  border-left:none;
+  border-left: none;
   border-color: #0073C0;
 }
+
 th.menu:hover {
-  background-color:blue;
+  background-color: blue;
 }
+
 table.menu {
   width: 100%;
   height: 100%;
   float: right;
 }
+
 #th-left {
   border-left: 0px;
 }
+
 header {
-  background-color:#0072ce;
+  background-color: #0072ce;
   padding: 20px;
   text-align: center;
-  color:white;
+  color: white;
   height: 85px;
 }
+
 #li-logo {
   size: 150px;
   width: 150px;
@@ -161,7 +197,8 @@ header {
   justify-items: flex-start;
   float: left;
 }
-div.lol {
+
+div.page-name {
   text-align: center;
   color: #0073C0;
 }
