@@ -63,66 +63,11 @@ button {
   border: 1px solid white;
 }
 
-button.sponsorship {
-  background-color: red;
-}
-
-button.sponsorship:hover {
-  background-color: blue;
-  color: white;
-}
-
-button.hospitality {
-  background-color: aquamarine;
-}
-
-button.hospitality:hover {
-  background-color: blue;
-  color: white;
-}
-
-button.fundraising {
-  background-color: bisque;
-}
-
-button.fundraising:hover {
-  background-color: blue;
-  color: white;
-}
-
-button.community {
-  background-color: coral;
-}
-
-button.community:hover {
-  background-color: blue;
-  color: white;
-}
-
-button.competition {
-  background-color: yellow;
-}
-
-button.competition:hover {
-  background-color: blue;
-  color: white;
-}
-
-button.sbe {
-  background-color: violet;
-}
-
-button.sbe:hover {
-  background-color: blue;
-  color: white;
-}
-
 ul.socialIcons {
   display: inline-block;
   margin: 2%;
   margin-bottom: 1%;
   margin-top: 2%;
-  float: right;
 }
 
 li.logo {
@@ -139,11 +84,11 @@ li.menu {
   vertical-align: middle;
   position: relative;
   margin: 40px;
-
 }
 
 li.menu:hover {
   text-decoration: underline;
+  color: rgb(40, 132, 132);
 }
 
 th.menu {
@@ -201,4 +146,11 @@ header {
 div.page-name {
   text-align: center;
   color: #0073C0;
+}
+
+ul.footerInfo {
+  display: inline-block;
+  margin: 2%;
+  margin-bottom: 1%;
+  margin-top: 2%;
 }
