@@ -1,162 +1,254 @@
-const activities = [
+// script.js
+
+// Define an array to store events
+let events = [];
+events.push(
     {
-        id: 0,
-        date: "01-01-2024",
-        activity: "New Years Day",
-    },
-    {
-        id: 1,
-        date: "01-01-2024",
-        activity: "No School",
-    },
-    /** 
-     * Formatting:
-     * {
-            date: "DD-MM-YYYY",
-            acitivity: "Activity Name",
-        },
-        {
-            date: "DD-MM-YYYY",
-            activity: "Other Activity Name",
-        },
-    */
+        id: 1, 
+        date: "01/01/2023",
+        title: "no school",
+        description: "Wooo"
+    }
+);
+// letiables to store event input fields and activity list
+let eventDateInput = document.getElementById("eventDate");
+let eventTitleInput = document.getElementById("eventTitle");
+let eventDescriptionInput = document.getElementById("eventDescription");
+let activityList = document.getElementById("activityList");
+
+// Counter to generate unique event IDs
+let eventIdCounter = 1;
+
+// Function to add events
+function addEvent() {
+	let date = eventDateInput.value;
+	let title = eventTitleInput.value;
+	let description = eventDescriptionInput.value;
+
+	if (date && title) {
+		// Create a unique event ID
+		let eventId = eventIdCounter++;
+
+		events.push(
+			{
+				id: eventId, 
+                date: date,
+				title: title,
+				description: description
+			}
+		);
+		showCalendar(currentMonth, currentYear);
+		eventDateInput.value = "";
+		eventTitleInput.value = "";
+		eventDescriptionInput.value = "";
+		displayActivities();
+	}
+}
+
+// Function to delete an event by ID
+function deleteEvent(eventId) {
+	// Find the index of the event with the given ID
+	let eventIndex =
+		events.findIndex((event) =>
+			event.id === eventId);
+
+	if (eventIndex !== -1) {
+		// Remove the event from the events array
+		events.splice(eventIndex, 1);
+		showCalendar(currentMonth, currentYear);
+		displayActivities();
+	}
+}
+
+// Function to display activitys
+function displayActivities() {
+	activityList.innerHTML = "";
+	for (let i = 0; i < events.length; i++) {
+		let event = events[i];
+		let eventDate = new Date(event.date);
+		if (eventDate.getMonth() === currentMonth && eventDate.getFullYear() === currentYear) {
+			let listItem = document.createElement("li");
+			listItem.innerHTML =`<strong>${event.title}</strong> - ${event.description} on ${eventDate.toLocaleDateString()}`;
+			let deleteButton = document.createElement("button");
+			deleteButton.className = "delete-event";
+			deleteButton.textContent = "Delete";
+			deleteButton.onclick = function () {
+				deleteEvent(event.id);
+			};
+
+			listItem.appendChild(deleteButton);
+			activityList.appendChild(listItem);
+		}
+	}
+}
+
+// Function to generate a range of 
+// years for the year select input
+function generate_year_range(start, end) {
+	let years = "";
+	for (let year = start; year <= end; year++) {
+		years += "<option value='" + year + "'>" + year + "</option>";
+	}
+	return years;
+}
+
+// Initialize date-related letiables
+today = new Date();
+currentMonth = today.getMonth();
+currentYear = today.getFullYear();
+selectYear = document.getElementById("year");
+selectMonth = document.getElementById("month");
+
+createYear = generate_year_range(1970, 2050);
+
+document.getElementById("year").innerHTML = createYear;
+
+let calendar = document.getElementById("calendar");
+
+let months = [
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December"
 ];
-const calendar = document.querySelector("#calendar");
-const monthBanner = document.querySelector("#month");
-let navigation = 0;
-let clicked = null;
-let events = localStorage.getItem("events") ? JSON.parse(localStorage.getItem("events")) : [];
-const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let days = [
+	"Sun", "Mon", "Tue", "Wed",
+	"Thu", "Fri", "Sat"];
 
-function loadCalendar() {
-    const dt = new Date();
-
-    if (navigation != 0) {
-        dt.setMonth(new Date().getMonth() + navigation);
-    }
-    const day = dt.getDate();
-    const month = dt.getMonth();
-    const year = dt.getFullYear();
-    monthBanner.innerText = `${dt.toLocaleDateString("en-us", {
-        month: "long",
-    })} ${year}`;
-    calendar.innerHTML = "";
-    const dayInMonth = new Date(year, month + 1, 0).getDate();
-    const firstDayofMonth = new Date(year, month, 1);
-    const dateText = firstDayofMonth.toLocaleDateString("en-us", {
-        weekday: "long",
-        year: "numeric",
-        month: "numeric",
-        day: "numeric",
-    });
-
-    const dayString = dateText.split(", ")[0];
-    const emptyDays = weekdays.indexOf(dayString);
-
-    for (let i = 1; i <= dayInMonth + emptyDays; i++) {
-        const dayBox = document.createElement("div");
-        dayBox.classList.add("day");
-        const monthVal = month + 1 < 10 ? "0" + (month + 1) : month + 1;
-        const dateVal = i - emptyDays < 10 ? "0" + (i - emptyDays) : i - emptyDays;
-        const dateText = `${dateVal}-${monthVal}-${year}`;
-        if (i > emptyDays) {
-            dayBox.innerText = i - emptyDays;
-            const eventOfTheDay = events.find((e) => e.date == dateText);
-            const activitiesOfTheDay = activities.find((e) => e.date == dateText);
-
-            if (i - emptyDays === day && navigation == 0) {
-                dayBox.id = "currentDay";
-            }
-
-            if (eventOfTheDay) {
-                const eventDiv = document.createElement("div");
-                eventDiv.classList.add("event");
-                eventDiv.innerText = eventOfTheDay.title;
-                dayBox.appendChild(eventDiv);
-            }
-            if (activitiesOfTheDay) {
-                const eventDiv = document.createElement("div");
-                eventDiv.classList.add("event");
-                eventDiv.classList.add("activity");
-                eventDiv.innerText = activitiesOfTheDay.activity;
-                dayBox.appendChild(eventDiv);
-            }
-
-            dayBox.addEventListener("click", () => {
-                showmodel(dateText);
-            });
-        } else {
-            dayBox.classList.add("plain");
-        }
-        calendar.append(dayBox);
-    }
+$dataHead = "<tr>";
+for (dhead in days) {
+	$dataHead += "<th data-days='" +
+		days[dhead] + "'>" +
+		days[dhead] + "</th>";
 }
-function buttons() {
-    const btnBack = document.querySelector("#btnBack");
-    const btnNext = document.querySelector("#btnNext");
-    const btnDelete = document.querySelector("#btnDelete");
-    const btnSave = document.querySelector("#btnSave");
-    const closeButtons = document.querySelectorAll(".btnClose");
-    const txtTitle = document.querySelector("#txtTitle");
+$dataHead += "</tr>";
 
-    btnBack.addEventListener("click", () => {
-        navigation--;
-        loadCalendar();
-    });
-    btnNext.addEventListener("click", () => {
-        navigation++;
-        loadCalendar();
-    });
-    model.addEventListener("click", closemodel);
-    closeButtons.forEach((btn) => {
-        btn.addEventListener("click", closemodel);
-    });
-    btnDelete.addEventListener("click", function () {
-        events = events.filter((e) => e.date !== clicked);
-        localStorage.setItem("events", JSON.stringify(events));
-        closemodel();
-    });
+document.getElementById("thead-month").innerHTML = $dataHead;
 
-    btnSave.addEventListener("click", function () {
-        if (txtTitle.value) {
-            txtTitle.classList.remove("error");
-            events.push({
-                date: clicked,
-                title: txtTitle.value.trim(),
-            });
-            txtTitle.value = "";
-            localStorage.setItem("events", JSON.stringify(events));
-            closemodel();
-        } else {
-            txtTitle.classList.add("error");
-        }
-    });
+monthAndYear =
+	document.getElementById("monthAndYear");
+showCalendar(currentMonth, currentYear);
+
+// Function to navigate to the next month
+function next() {
+	currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+	currentMonth = (currentMonth + 1) % 12;
+	showCalendar(currentMonth, currentYear);
 }
 
-const model = document.querySelector("#model");
-const viewEventForm = document.querySelector("#viewEvent");
-const addEventForm = document.querySelector("#addEvent");
-
-function showmodel(dateText) {
-    clicked = dateText;
-    const eventOfTheDay = events.find((e) => e.date == dateText);
-    if (eventOfTheDay) {
-        document.querySelector("#eventText").innerText = eventOfTheDay.title;
-        viewEventForm.style.display = "block";
-    } else {
-        addEventForm.style.display = "block";
-    }
-    model.style.display = "block";
+// Function to navigate to the previous month
+function previous() {
+	currentYear = currentMonth === 0 ?
+		currentYear - 1 : currentYear;
+	currentMonth = currentMonth === 0 ?
+		11 : currentMonth - 1;
+	showCalendar(currentMonth, currentYear);
 }
 
-//Close model
-function closemodel() {
-    viewEventForm.style.display = "none";
-    addEventForm.style.display = "none";
-    model.style.display = "none";
-    clicked = null;
-    loadCalendar();
+// Function to jump to a specific month and year
+function jump() {
+	currentYear = parseInt(selectYear.value);
+	currentMonth = parseInt(selectMonth.value);
+	showCalendar(currentMonth, currentYear);
 }
 
-buttons();
-loadCalendar();
+// Function to display the calendar
+function showCalendar(month, year) {
+	let firstDay = new Date(year, month, 1).getDay();
+	tbl = document.getElementById("calendar-body");
+	tbl.innerHTML = "";
+	monthAndYear.innerHTML = months[month] + " " + year;
+	selectYear.value = year;
+	selectMonth.value = month;
+
+	let date = 1;
+	for (let i = 0; i < 6; i++) {
+		let row = document.createElement("tr");
+		for (let j = 0; j < 7; j++) {
+			if (i === 0 && j < firstDay) {
+				cell = document.createElement("td");
+				cellText = document.createTextNode("");
+				cell.appendChild(cellText);
+				row.appendChild(cell);
+			} else if (date > daysInMonth(month, year)) {
+				break;
+			} else {
+				cell = document.createElement("td");
+				cell.setAttribute("data-date", date);
+				cell.setAttribute("data-month", month + 1);
+				cell.setAttribute("data-year", year);
+				cell.setAttribute("data-month_name", months[month]);
+				cell.className = "date-picker";
+				cell.innerHTML = "<span>" + date + "</span";
+
+				if (
+					date === today.getDate() && year === today.getFullYear() &&
+					month === today.getMonth()
+				) {
+					cell.className = "date-picker selected";
+				}
+
+				// Check if there are events on this date
+				if (hasEventOnDate(date, month, year)) {
+					cell.classList.add("event-marker");
+					cell.appendChild(
+						createEventTooltip(date, month, year)
+				);
+				}
+
+				row.appendChild(cell);
+				date++;
+			}
+		}
+		tbl.appendChild(row);
+	}
+
+	displayActivities();
+}
+
+// Function to create an event tooltip
+function createEventTooltip(date, month, year) {
+	let tooltip = document.createElement("div");
+	tooltip.className = "event-tooltip";
+	let eventsOnDate = getEventsOnDate(date, month, year);
+	for (let i = 0; i < eventsOnDate.length; i++) {
+		let event = eventsOnDate[i];
+		let eventDate = new Date(event.date);
+		let eventText = `<strong>${event.title}</strong> - 
+			${event.description} on 
+			${eventDate.toLocaleDateString()}`;
+		let eventElement = document.createElement("p");
+		eventElement.innerHTML = eventText;
+		tooltip.appendChild(eventElement);
+	}
+	return tooltip;
+}
+
+// Function to get events on a specific date
+function getEventsOnDate(date, month, year) {
+	return events.filter(function (event) {
+		let eventDate = new Date(event.date);
+		return (eventDate.getDate() === date && eventDate.getMonth() === month && eventDate.getFullYear() === year);
+	});
+}
+
+// Function to check if there are events on a specific date
+function hasEventOnDate(date, month, year) {
+	return getEventsOnDate(date, month, year).length > 0;
+}
+
+// Function to get the number of days in a month
+function daysInMonth(iMonth, iYear) {
+	return 32 - new Date(iYear, iMonth, 32).getDate();
+}
+
+// Call the showCalendar function initially to display the calendar
+showCalendar(currentMonth, currentYear);

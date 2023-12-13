@@ -1,171 +1,202 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 /* Calender CSS*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-.calenderContainer {
-  width: 770px;
-  background-color:white;
-  justify-content: center;
-}
-
-.calenderHeader {
-  padding: 10px;
+.container-calendar {
+  background: #ffffff;
+  padding: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
-  background-color: #0072ce;
 }
 
-.calenderHeader #month {
-  color:white;
-  font-size: 30px;
-  font-weight: 600;
-}
-
-.calendar button {
-  width: 75px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 5px;
-  border-radius: 3px;
-  color: white;
-}
-
-.calenderHeader button {
-  background-color:black;
-  color:white;
-}
-
-.weekdays {
-  width: 100%;
-  display: flex;
-  background-color: #2f3640;
-  font-size: 17px;
-  color: #fff;
-  font-weight: 500;
-}
-
-.weekdays div {
-  width: 100px;
+#event-section {
   padding: 10px;
+  background: #f5f5f5;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+}
+
+.container-calendar #left h1 {
+  color: green;
   text-align: center;
-  text-transform: uppercase;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 10px 0;
 }
 
-#calendar {
-  width: 100%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
+#event-section h3 {
+  color: green;
+  font-size: 18px;
+  margin: 0;
 }
 
-.day {
-  width: 100px;
-  height: 100px;
-  padding: 10px;
+#event-section input[type="date"],
+#event-section input[type="text"] {
+  margin: 10px 0;
+  padding: 5px;
+  width: 80%;
+}
+
+#event-section button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
   cursor: pointer;
-  margin: 5px;
-  box-sizing: border-box;
-  box-shadow: 0px 0px 3px #cbd4c2;
-  color: #7f8fa6;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.day:hover {
-  background-color: rgba(112, 111, 211, 0.1);
-  color: #706fd3;
+.event-marker {
+  position: relative;
 }
 
-#currentDay {
-  background-color: #706fd3;
-  color: #fff;
-}
-
-.event {
-  font-size: 10px;
-  padding: 3px;
-  background-color: #3d3d3d;
-  color: #fff;
-  border-radius: 5px;
-  max-height: 55px;
-  overflow: hidden;
-}
-
-.event.activity {
-  background-color: palegreen;
-  color: #3d3d3d;
-}
-
-.plain {
-  cursor: default;
-  box-shadow: none;
-}
-
-#model {
-  display: none;
+.event-marker::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: red;
+  border-radius: 50%;
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100vw;
-  height: 100vh;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0;
+  left: 0;
 }
 
-#addEvent,
-#viewEvent {
-  display: none;
-  width: 350px;
-  background-color: #fff;
-  padding: 25px;
+.event-tooltip {
   position: absolute;
-  z-index: 20;
-}
-
-#addEvent h2,
-#viewEvent h2 {
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
-#txtTitle {
+  background-color: rgba(234, 232, 232, 0.763);
+  color: black;
   padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 25px;
-  border-radius: 3px;
-  outline: none;
-  border: 1px solid #cbd4c2;
+  border-radius: 4px;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.event-marker:hover .event-tooltip {
+  display: block;
+}
+
+#activity-section {
+  padding: 10px;
+  background: #f5f5f5;
+  margin: 20px 0;
+  border: 1px solid #ccc;
+}
+
+#activity-section h3 {
+  color: green;
+  font-size: 18px;
+  margin: 0;
+}
+
+#activityList {
+  list-style: none;
+  padding: 0;
+}
+
+#activityList li {
+  margin: 5px 0;
   font-size: 16px;
 }
 
-#btnSave {
-  background-color: #2ed573;
+.delete-event {
+  background: rgb(237, 19, 19);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  align-items: right;
 }
 
-.btnClose {
-  background-color: #2f3542;
+.button-container-calendar button {
+  cursor: pointer;
+  background: green;
+  color: #fff;
+  border: 1px solid green;
+  border-radius: 4px;
+  padding: 5px 10px;
 }
 
-#viewEvent p {
-  margin-bottom: 20px;
+.table-calendar {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-#btnDelete {
-  background-color: #ea2027;
+.table-calendar td,
+.table-calendar th {
+  padding: 5px;
+  border: 1px solid #e2e2e2;
+  text-align: center;
+  vertical-align: top;
 }
 
-.error {
-  border-color: #ea2027 !important;
+.date-picker.selected {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  outline: 1px dashed #00BCD4;
 }
+
+.date-picker.selected span {
+  border-bottom: 2px solid currentColor;
+}
+
+.date-picker:nth-child(1) {
+  color: red;
+}
+
+.date-picker:nth-child(6) {
+  color: green;
+}
+
+.date-picker:hover {
+  background-color: green;
+  color: white;
+  cursor: pointer;
+}
+
+#monthAndYear {
+  text-align: center;
+  margin-top: 0;
+}
+
+.button-container-calendar {
+  position: relative;
+  margin-bottom: 1em;
+  overflow: hidden;
+  clear: both;
+}
+
+#previous {
+  float: left;
+}
+
+#next {
+  float: right;
+}
+
+.footer-container-calendar {
+  margin-top: 1em;
+  border-top: 1px solid #dadada;
+  padding: 10px 0;
+}
+
+.footer-container-calendar select {
+  cursor: pointer;
+  background: #ffffff;
+  color: #585858;
+  border: 1px solid #bfc5c5;
+  border-radius: 3px;
+  padding: 5px 1em;
+}
+
 
 /* Yet to be labeled CSS*/
 div.heroImageHomePage {

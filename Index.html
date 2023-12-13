@@ -47,39 +47,49 @@
   <div class="page-name">
     <h1>Westborough DECA</h1>
   </div>
-  <div class="calender">
-    <div class="calenderContainer">
-      <div class="calenderHeader">
-        <div id="month"></div>
-        <div>
-          <button id="btnBack"><i class="leftButton"> Prev </i></button>
-          <button id="btnNext"><i class="rightButton"> Next </i></button>
+  <div class="wrapper">
+    <div class="container-calendar">
+      <div id="left">
+        <h1>Calendar</h1>
+        <div id="activity-section">
+          <h3>Activities</h3>
+          <ul id="activityList">
+            <li data-event-id="1">
+              <strong>Event Title</strong>
+              <button class="delete-event" onclick="deleteEvent(1)">Delete</button>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="weekdays">
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
+      <div id="right">
+        <h3 id="monthAndYear"></h3>
+        <div class="button-container-calendar">
+          <button id="previous" onclick="previous()">‹</button>
+          <button id="next" onclick="next()">›</button>
+        </div>
+        <table class="table-calendar" id="calendar" data-lang="en">
+          <thead id="thead-month"></thead>
+          <tbody id="calendar-body"></tbody>
+        </table>
+        <div class="footer-container-calendar">
+          <label for="month">Jump To: </label>
+          <select id="month" onchange="jump()">
+            <option value=0>Jan</option>
+            <option value=1>Feb</option>
+            <option value=2>Mar</option>
+            <option value=3>Apr</option>
+            <option value=4>May</option>
+            <option value=5>Jun</option>
+            <option value=6>Jul</option>
+            <option value=7>Aug</option>
+            <option value=8>Sep</option>
+            <option value=9>Oct</option>
+            <option value=10>Nov</option>
+            <option value=11>Dec</option>
+          </select>
+          <select id="year" onchange="jump()"></select>
+        </div>
       </div>
-      <div id="calendar"></div>
-    </div>
-    <div id="model"></div>
-    <div id="addEvent">
-      <h2>Add Event</h2>
-      <input type="text" id="txtTitle" placeholder="Event Title" />
-      <button id="btnSave">Save</button>
-      <button class="btnClose">Close</button>
-    </div>
-
-    <div id="viewEvent">
-      <h2>Event</h2>
-      <p id="eventText">This is Sample Event</p>
-      <button id="btnDelete">Delete</button>
-      <button class="btnClose">Close</button>
     </div>
   </div>
   </section>
