@@ -1,7 +1,18 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Calender CSS*/
+.container-calendar {
+  background: #ffffff;
+  padding: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
 }
 
+/* Yet to be labeled CSS*/
 div.heroImageHomePage {
   background-image: url(images/heroImages/heroImage1.png);
   background-repeat: no-repeat;
@@ -88,7 +99,7 @@ li.menu {
 
 li.menu:hover {
   text-decoration: underline;
-  color:black;
+  color: black;
 }
 
 th.menu {
@@ -166,14 +177,10 @@ div.header {
 h1.header {
   margin-top: 10%;
   font-size: 500%;
-  color:#0072ce;
+  color: #0072ce;
 }
 
 h2.missionStatement {
   font-size: 300%;
-  color:#0072ce;
-}
-
-div.address {
-  
+  color: #0072ce;
 }
