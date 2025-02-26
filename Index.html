@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-  <script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -38,21 +38,29 @@
       </ul>
     </nav>
   </header>
-  <div class="heroImageHomePage">
+  <div class="heroImageHomePage" id="index">
     <div class="header">
       <h1 class="header">Westborough DECA</h1>
-      <h2 class="missionStatement">Training the Future Leader and Entrepreneurs of the World</h2>
+      <h2 class="missionStatement">Training the Future Leaders and Entrepreneurs of the World</h2>
     </div>
   </div>
   <div class="page-name">
-    <h1>Westborough DECA</h1>
+    <h1>Home</h1>
   </div>
-  <div class="wrapper">
-    <div class="container-calendar">
-        <iframe class="mainCalander" src="https://calendar.google.com/calendar/embed?src=c_a5cb8c85898e434a1dacc4f3ab550335d8e99159495d2afd720653013e7f6389%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-      </div>
-    </div>
-  </section>
+  <div><h2 class="subTitle">What is DECA?</h2></div>
+  <div><p>DECA is an international academic non-profi torganization that offers programs for high school and college students in order to prepares students for careers in marketing, finance, hospitality, and management. They use several ways to accomplish this goal which include but aren't limited to: Competitive events, School-based enterprises, Educational conferences, Industry partnerships, etc. The most common activity that students participate in is the competitive events which are divided into 3 different levels: Local, Regional, and International. Students choose thair category then compete  by one or more of these ways: online testing, in person role plays, team decision making events and business/manual plan events.</p></div>
+  <div #calenderTitle>
+    <h2 class="subTitle">Future Events</h2>
+  </div>
+  <div class="container-calendar">
+      <iframe class="mainCalander" src="https://calendar.google.com/calendar/embed?src=c_a5cb8c85898e434a1dacc4f3ab550335d8e99159495d2afd720653013e7f6389%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+  </div>
+  <div class="stats-panel">
+    <button class="stats">93 Members</button>
+    <button class="stats">23 Trophies</button>
+    <button class="stats">56 Medals</button>
+    <button id = "yearsAsATeam" class="stats"><script>document.write(getYearsAsATeam())</script></button>
+  </div>
   <section>Lower Section</section>
   <footer>
     <ul class="socialIcons">

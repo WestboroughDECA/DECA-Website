@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-/* Calender CSS*/
+/* Calender CSS */
 .container-calendar {
   padding: 15px;
   max-width: 900px;
@@ -11,9 +11,44 @@
   justify-content: space-between;
 }
 
-/* Yet to be labeled CSS*/
-div.heroImageHomePage {
-  background-image: url(images/heroImages/heroImage1.png);
+
+/* Stats CSS */
+.curved-text {
+  position:relative;
+  display:inline-block;
+  margin:0 auto;
+  font-size:32px;
+ }
+ div.stats-panel {
+  padding: 20px;
+  text-align: center;
+ }
+ button.stats {
+  background-color: blue;
+  color: white;
+  width: 100px;
+  height: 40px;
+  margin: auto;
+  border-radius: 50%;
+}
+
+button.stats:hover {
+  background-color: blue;
+}
+ 
+/* Yet to be labeled CSS */
+#index {
+  background-image: url(images/heroImages/heroImageIndex.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 20px;
+  height: 400px;
+  text-align: center;
+  color: #0073C0;
+}
+
+#fundraising {
+  background-image: url(images/heroImages/heroImageFundraising.png);
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 20px;
@@ -182,4 +217,15 @@ h1.header {
 h2.missionStatement {
   font-size: 300%;
   color: #0072ce;
+}
+
+h2.subTitle {
+  text-align: center;
+  color: black;
+}
+
+p {
+  padding: 20px;
+  text-align: center;
+  color: black;
 }
